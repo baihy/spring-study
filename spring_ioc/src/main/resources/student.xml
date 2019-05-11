@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+    <bean id="userService" class="com.baihy.xml.service.impl.UserServiceImpl"></bean>
+    <bean id="userService1" class="com.baihy.xml.service.impl.UserServiceImpl"></bean>
+
+</beans>
