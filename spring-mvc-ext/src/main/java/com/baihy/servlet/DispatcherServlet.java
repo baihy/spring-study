@@ -51,12 +51,11 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        /**
-         * 1.扫描指定的包下的所有类。
-         * 2.过滤出类头上有指定注解的类，并完成初始化
-         */
+        // 扫描指定包下的所有类
         List<Class<?>> classListWithAnnotation = getCLassInfoWith(ClassUtils.getClasses(basePackage));
+        // 把带有指定注解的类过滤出来，并把它们初始化到spring的ioc容器中
         initSpringIoc(classListWithAnnotation);
+        // 初始化handleMapping
         initHandlerMapping();
     }
 
@@ -119,7 +118,13 @@ public class DispatcherServlet extends HttpServlet {
         }
     }
 
-
+    /**
+     * 通过类和方法上的注解处理请求地址
+     *
+     * @param parent
+     * @param method
+     * @return
+     */
     public String getRequestPath(ExtRequestMapping parent, ExtRequestMapping method) {
         StringBuilder path = new StringBuilder();
         if (parent != null) {
@@ -159,6 +164,13 @@ public class DispatcherServlet extends HttpServlet {
         handleResult(result, response);
     }
 
+    /**
+     * 通过反射调用方法， 并返回方法的返回值。
+     *
+     * @param object
+     * @param method
+     * @return
+     */
     private Object invokeMethod(Object object, Method method) {
         try {
             return method.invoke(object);
