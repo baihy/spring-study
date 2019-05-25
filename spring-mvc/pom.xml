@@ -7,14 +7,17 @@
     <groupId>com.baihy</groupId>
     <artifactId>spring-mvc</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <modules>
+        <module>../spring-demo</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <properties>
         <spring.version>5.1.7.RELEASE</spring.version>
     </properties>
 
     <dependencies>
-        <dependency><!--引入springmvc的依赖jar-->
+        <dependency><!--引入springmvc的依赖-->
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
