@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:myUser="http://www.springframework.org/schema/users"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/users http://www.baihuayang.com/spring-userdemo.xsd">
 
     <bean id="test" class="com.baihy.beanfactory.test.MyTestBean"></bean>
-
+    <!--配置标签，标签名称为user，指定的地方是在xsd文件中-->
+    <myUser:user id="userdemo" username="baihuayang" password="pwd"/>
 </beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.springframework.org/schema/users"><!--这个命名空间需要在xml配置文件的头指定-->
+
+    <xsd:element name="user"><!--这个name属性，决定了xml配置文件中的标签名称-->
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string"/><!--注意id属性是必须的，他会指定配置的bean的名称，但是在xml配置文件，可以不配置-->
+            <xsd:attribute name="username" type="xsd:string"/>
+            <xsd:attribute name="password" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
