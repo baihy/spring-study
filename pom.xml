@@ -13,6 +13,12 @@
         <spring.version>5.1.7.RELEAS</spring.version>
     </properties>
 
+    <modules>
+        <module>spring-ioc</module>
+        <module>spring-mvc</module>
+        <module>spring-mvc-ext</module>
+    </modules>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -31,7 +37,6 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
