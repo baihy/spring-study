@@ -1,10 +1,12 @@
 package com.baihy.test;
 
 import com.baihy.beanfactory.test.MyTestBean;
+import com.baihy.context.MyClassPathXmlApplication;
 import com.baihy.domain.UserDemo;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -39,5 +41,15 @@ public class BeanFactoryTest {
         System.out.println(userDemo.getUsername() + "*******" + userDemo.getPassword());
     }
 
+
+    /***
+     * 测试自定义标签
+     */
+    @Test
+    public void testApplicationContext() {
+        ApplicationContext context = new MyClassPathXmlApplication("applicationContext.xml");
+        UserDemo userDemo = context.getBean(UserDemo.class);
+        System.out.println(userDemo.getUsername() + "*******" + userDemo.getPassword());
+    }
 
 }
