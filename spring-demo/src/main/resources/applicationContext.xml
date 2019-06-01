@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:myUser="http://www.springframework.org/schema/users"
+       xmlns:myUser="http://www.springframework.org/schema/users" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/users http://www.baihuayang.com/spring-userdemo.xsd">
+        http://www.springframework.org/schema/users http://www.baihuayang.com/spring-userdemo.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--配置标签，标签名称为user，指定的地方是在xsd文件中-->
     <myUser:user id="userdemo" username="baihuayang" password="pwd"/>
@@ -37,4 +37,11 @@
 
     <!--配置监听器-->
     <bean id="myListener" class="com.baihy.listener.TestEventListener"></bean>
+
+
+    <!--开启AOP切面编程-->
+    <aop:aspectj-autoproxy/>
+    <bean class="com.baihy.aop.AspectTest"/> <!--把切面交给spring容器-->
+    <bean id="userService" class="com.baihy.service.UserService"/>
+
 </beans>

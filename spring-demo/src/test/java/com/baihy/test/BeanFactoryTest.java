@@ -4,6 +4,7 @@ import com.baihy.beanfactory.test.MyTestBean;
 import com.baihy.context.MyClassPathXmlApplication;
 import com.baihy.domain.UserDemo;
 import com.baihy.event.TestEvent;
+import com.baihy.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -65,13 +66,23 @@ public class BeanFactoryTest {
     }
 
     /***
-     * 测试自定义标签
+     *  测试自定义事件
      */
     @Test
     public void testEvent() {
         ApplicationContext context = new MyClassPathXmlApplication("applicationContext.xml");
         TestEvent testEvent = new TestEvent(this, "baihuayang");
         context.publishEvent(testEvent);
+    }
+
+    /***
+     * 测试切面编程
+     */
+    @Test
+    public void testAop() {
+        ApplicationContext context = new MyClassPathXmlApplication("applicationContext.xml");
+        UserService userService = context.getBean(UserService.class);
+        userService.test("baihuayang");
     }
 
 
