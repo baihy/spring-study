@@ -3,6 +3,7 @@ package com.baihy.test;
 import com.baihy.beanfactory.test.MyTestBean;
 import com.baihy.context.MyClassPathXmlApplication;
 import com.baihy.domain.UserDemo;
+import com.baihy.event.TestEvent;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
@@ -51,5 +52,27 @@ public class BeanFactoryTest {
         UserDemo userDemo = context.getBean(UserDemo.class);
         System.out.println(userDemo.getUsername() + "*******" + userDemo.getPassword());
     }
+
+
+    /***
+     * 测试自定义标签
+     */
+    @Test
+    public void testProperty() {
+        ApplicationContext context = new MyClassPathXmlApplication("applicationContext.xml");
+        MyTestBean testBean = context.getBean(MyTestBean.class);
+        System.out.println(testBean);
+    }
+
+    /***
+     * 测试自定义标签
+     */
+    @Test
+    public void testEvent() {
+        ApplicationContext context = new MyClassPathXmlApplication("applicationContext.xml");
+        TestEvent testEvent = new TestEvent(this, "baihuayang");
+        context.publishEvent(testEvent);
+    }
+
 
 }

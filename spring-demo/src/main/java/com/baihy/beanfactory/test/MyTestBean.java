@@ -1,5 +1,10 @@
 package com.baihy.beanfactory.test;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+import java.util.Date;
+
 /**
  * @projectName: spring-study
  * @packageName: com.baihy.beanfactory.test
@@ -7,15 +12,12 @@ package com.baihy.beanfactory.test;
  * @author: huayang.bai
  * @date: 2019-05-25 19:49
  */
+@Data
+@Accessors(chain = true)
 public class MyTestBean {
 
     private String testStr = "hello world";
 
-    public String getTestStr() {
-        return testStr;
-    }
+    private Date birthday;
 
-    public void setTestStr(String testStr) {
-        this.testStr = testStr;
-    }
 }

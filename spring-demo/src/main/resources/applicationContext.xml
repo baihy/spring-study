@@ -5,7 +5,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/users http://www.baihuayang.com/spring-userdemo.xsd">
 
-    <bean id="test" class="com.baihy.beanfactory.test.MyTestBean"></bean>
     <!--配置标签，标签名称为user，指定的地方是在xsd文件中-->
     <myUser:user id="userdemo" username="baihuayang" password="pwd"/>
+
+
+    <bean id="test" class="com.baihy.beanfactory.test.MyTestBean">
+        <property name="testStr" value="hello world"/>
+        <property name="birthday" value="2019-06-01"/>
+    </bean>
+
+    <!--把自定义类型的转换器，加入spring管理-->
+    <!--方式1：使用自定义编辑器的方式，指定属性类型转换器-->
+    <!--<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                &lt;!&ndash;新版spring的配置方式，新版本需要的是一个字节码对象&ndash;&gt;
+                <entry key="java.util.Date" value="com.baihy.utils.DatePropertyEditor"/>
+            </map>
+        </property>
+    </bean>-->
+
+    <!--使用spring注册，注册spring自带的属性编辑器-->
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <bean class="com.baihy.utils.DatePropertyEditorRegister"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--配置监听器-->
+    <bean id="myListener" class="com.baihy.listener.TestEventListener"></bean>
 </beans>
