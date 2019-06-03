@@ -17,6 +17,8 @@
         <module>spring-ioc</module>
         <module>spring-mvc</module>
         <module>spring-mvc-ext</module>
+        <module>spring-jdbc-demo</module>
+        <module>spring-aop-demo</module>
     </modules>
 
     <dependencyManagement>
@@ -47,24 +49,11 @@
                 <artifactId>spring-aspects</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <dependency>
+            <dependency><!--引入spring-jdbc的依赖-->
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
-            <dependency><!--引入Spring的AOP的依赖-->
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-aop</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-aspects</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
