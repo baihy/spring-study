@@ -18,6 +18,7 @@
         <module>spring-mvc</module>
         <module>spring-mvc-ext</module>
         <module>spring-aop-demo</module>
+        <module>spring-jdbc-demo</module>
     </modules>
 
     <dependencyManagement>
@@ -46,6 +47,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
