@@ -13,6 +13,10 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
         <dependency><!--引入springAOP的依赖-->
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
