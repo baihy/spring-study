@@ -2,8 +2,8 @@ package com.baihy;
 
 import com.baihy.proxy.CglibDynamicImpl;
 import com.baihy.proxy.DynamicImpl;
-import com.baihy.target.IDeveloper;
-import com.baihy.target.impl.Developer;
+import com.baihy.targetclass.IDeveloper;
+import com.baihy.targetclass.impl.Developer;
 
 /**
  * @projectName: spring-study
