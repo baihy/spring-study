@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.sql.Types;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insert(User user) {
-        return jdbcTemplate.update("insert t_user (username, password) values (?,?)", user.getUsername(), user.getPassword());
+        return jdbcTemplate.update("insert t_user (username, password) values (?,?)", new Object[]{user.getUsername(), user.getPassword()}, new int[]{Types.VARCHAR, Types.VARCHAR});
     }
 
     @Override
