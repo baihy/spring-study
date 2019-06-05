@@ -32,4 +32,10 @@ public class UserServiceImpl implements UserService {
     public List<User> find(User param) {
         return null;
     }
+
+    @Override
+    public User get(Integer id) {
+        String sql = "select * from t_user where id = ?";
+        return jdbcTemplate.queryForObject(sql, User.class, id);
+    }
 }

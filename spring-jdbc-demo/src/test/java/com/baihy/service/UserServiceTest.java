@@ -27,4 +27,11 @@ public class UserServiceTest {
         System.out.println(result);
     }
 
+
+    @Test
+    public void testGet() {
+        User user = userService.get(29);
+        System.out.println(user);
+    }
+
 }

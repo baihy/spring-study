@@ -18,4 +18,8 @@ public interface UserService {
 
     List<User> find(User param);
 
+
+    User get(Integer id);
+
+
 }
