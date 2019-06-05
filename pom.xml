@@ -19,6 +19,7 @@
         <module>spring-mvc-ext</module>
         <module>spring-jdbc-demo</module>
         <module>spring-aop-demo</module>
+        <module>spring-mybatis-demo</module>
     </modules>
 
     <dependencyManagement>
@@ -97,6 +98,16 @@
                 <artifactId>jsp-api</artifactId>
                 <version>2.2</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>3.5.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
