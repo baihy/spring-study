@@ -5,22 +5,29 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.baihy.service"/>
-
+    <!--配置数据源-->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="jdbcUrl" value="jdbc:mysql://192.168.0.101:3307/abc"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
-
+    <!--配置sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
-
+    <!--配置Mapper工厂-->
+    <!--这种方式：对待多个Mapper接口，实在是无能为力。所有就有了MapperScannerConfigurer-->
+    <!--
     <bean class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.baihy.mapper.UserMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    -->
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.baihy.mapper"/>
     </bean>
 
 </beans>
