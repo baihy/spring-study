@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * @projectName: spring-study
  * @packageName: com.baihy.service
@@ -32,6 +34,19 @@ public class UserServiceTest {
     public void testGet() {
         User user = userService.get(29);
         System.out.println(user);
+    }
+
+
+    @Test
+    public void testFind() {
+        List<User> users = userService.find(new User());
+        System.out.println(users);
+    }
+
+    @Test
+    public void testFindAll() {
+        List<User> users = userService.find();
+        System.out.println(users);
     }
 
 }

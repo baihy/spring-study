@@ -3,6 +3,7 @@ package com.baihy.service.impl;
 import com.baihy.domain.User;
 import com.baihy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> find(User param) {
-        return null;
+        String sql = "select * from t_user";
+        return jdbcTemplate.query(sql, (rs, rowNum) ->
+                new User().setId(rs.getInt("id")).setUsername(rs.getString("username")).setPassword(rs.getString("password"))
+        );
+    }
+
+    @Override
+    public List<User> find() {
+        String sql = "select * from t_user";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override

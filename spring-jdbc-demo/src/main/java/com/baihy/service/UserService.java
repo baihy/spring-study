@@ -15,9 +15,9 @@ public interface UserService {
 
     int insert(User user);
 
-
     List<User> find(User param);
 
+    List<User> find();
 
     User get(Integer id);
 
