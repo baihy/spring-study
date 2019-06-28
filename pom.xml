@@ -20,6 +20,7 @@
         <module>spring-jdbc-demo</module>
         <module>spring-aop-demo</module>
         <module>spring-mybatis-demo</module>
+        <module>myListener-demo</module>
     </modules>
 
     <dependencyManagement>
