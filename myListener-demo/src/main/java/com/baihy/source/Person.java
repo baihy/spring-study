@@ -15,6 +15,9 @@ public class Person {
     private PersonListener personListener;
 
 
+    public Person() {
+    }
+
     public Person(PersonListener personListener) {
         this.personListener = personListener;
     }
@@ -29,8 +32,10 @@ public class Person {
 
 
     public void eat() {
-        PersonEvent event = new PersonEvent(this);
-        personListener.doEat(event);
+        if (this.personListener != null) {
+            PersonEvent event = new PersonEvent(this);
+            personListener.doEat(event);
+        }
         System.out.println("*************eat************");
     }
 
