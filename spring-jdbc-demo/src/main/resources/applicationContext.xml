@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="com.baihy.service"/>
+
+
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -15,6 +17,15 @@
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
-        <property name="fetchSize" value="1000"/> <!--这个属性的含义是：表示调用rs.next()方法的时候，一次性返回多少条数据，会减少和数据库的交互。当next方法执行的时候，就可以从内存中去数据，而不需要网络取数据-->
+        <property name="fetchSize" value="1000"/>
+        <!--这个属性的含义是：表示调用rs.next()方法的时候，一次性返回多少条数据，会减少和数据库的交互。当next方法执行的时候，就可以从内存中去数据，而不需要网络取数据-->
     </bean>
+
+
+    <!--标签的transaction-manager属性的默认值是：transactionManager，mode属性是指定事务的切入方式：代理还是AOP，默认是proxy-->
+    <tx:annotation-driven transaction-manager="transactionManager" mode="proxy"/>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
 </beans>

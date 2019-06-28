@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Types;
 import java.util.List;
@@ -24,9 +25,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Transactional
     @Override
     public int insert(User user) {
-        return jdbcTemplate.update("insert t_user (username, password) values (?,?)", new Object[]{user.getUsername(), user.getPassword()}, new int[]{Types.VARCHAR, Types.VARCHAR});
+        int result = jdbcTemplate.update("insert t_user (username, password) values (?,?)", new Object[]{user.getUsername(), user.getPassword()}, new int[]{Types.VARCHAR, Types.VARCHAR});
+        System.out.println("结果是：" + result);
+        Integer.parseInt("abc"); // 这里的异常是不能捕获的，如果捕获了异常就相当于是处理了异常，就不会被捕获了
+        return result;
     }
 
     @Override
