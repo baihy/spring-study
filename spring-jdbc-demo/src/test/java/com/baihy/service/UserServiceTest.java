@@ -25,7 +25,7 @@ public class UserServiceTest {
 
     @Test
     public void testInsert() {
-        int result = userService.insert(new User().setUsername("user1").setPassword("pwd1"));
+        int result = userService.insert(new User().setUsername("user").setPassword("pwd"));
         System.out.println(result);
     }
 

@@ -30,7 +30,8 @@ public class UserServiceImpl implements UserService {
     public int insert(User user) {
         int result = jdbcTemplate.update("insert t_user (username, password) values (?,?)", new Object[]{user.getUsername(), user.getPassword()}, new int[]{Types.VARCHAR, Types.VARCHAR});
         System.out.println("结果是：" + result);
-        Integer.parseInt("abc"); // 这里的异常是不能捕获的，如果捕获了异常就相当于是处理了异常，就不会被捕获了
+        // Integer.parseInt("abc");
+        // 这里的异常是不能捕获的，如果捕获了异常就相当于是处理了异常，就不会被捕获了
         return result;
     }
 
