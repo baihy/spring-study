@@ -21,6 +21,7 @@
         <module>spring-aop-demo</module>
         <module>spring-mybatis-demo</module>
         <module>myListener-demo</module>
+        <module>servlet-demo</module>
     </modules>
 
     <dependencyManagement>
