@@ -13,4 +13,9 @@
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!--这个id必须是multipartResolver，在springmvc初始化的时候，需要通过这个id获取这个对象-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1024000"/>
+    </bean>-->
 </beans>

@@ -5,13 +5,16 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param><!--注入：如果在DispatcherServlet中，不指定contextConfigLocation属性的话，就会查找/WEB-INF/dispatcherServlet-servlet.xml下的配置文件-->
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>detectAllHandlerAdapters</param-name>
+            <param-value>false</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
