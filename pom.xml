@@ -22,6 +22,8 @@
         <module>spring-mybatis-demo</module>
         <module>myListener-demo</module>
         <module>servlet-demo</module>
+        <module>spring-rmi-service-demo</module>
+        <module>spring-rmi-client-demo</module>
     </modules>
 
     <dependencyManagement>

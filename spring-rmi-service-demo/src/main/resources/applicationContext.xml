@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="rmiHelloService" class="com.baihy.service.impl.RmiHelloServiceImpl"/>
+    <!--注册为远程服务类-->
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <!--服务类-->
+        <property name="service" ref="rmiHelloService"/>
+        <!--服务接口-->
+        <property name="serviceInterface" value="com.baihy.service.RmiHelloService"/>
+        <!--服务名称，服务名称是和客户端的调用相关，-->
+        <property name="serviceName" value="rmiHelloService"/>
+        <!--服务端口-->
+        <property name="registryPort" value="9999"/>
+        <!--客户端调用的url地址是：rmi协议://ip地址:port/服务名称-->
+    </bean>
+
+</beans>
