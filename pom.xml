@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <spring.version>5.1.7.RELEASE</spring.version>
+        <spring.version>5.1.8.RELEASE</spring.version>
     </properties>
 
     <modules>
@@ -24,6 +24,7 @@
         <module>servlet-demo</module>
         <module>spring-rmi-service-demo</module>
         <module>spring-rmi-client-demo</module>
+        <module>spring-aop-demo1</module>
     </modules>
 
     <dependencyManagement>
@@ -113,7 +114,11 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>2.0.1</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>1.9.4</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

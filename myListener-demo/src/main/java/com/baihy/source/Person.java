@@ -2,7 +2,6 @@ package com.baihy.source;
 
 import com.baihy.event.PersonEvent;
 import com.baihy.listener.PersonListener;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @projectName: spring-study
@@ -11,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author: huayang.bai
  * @date: 2019/06/28 15:19
  */
-@Slf4j
 public class Person {
 
     private PersonListener personListener;
