@@ -1,6 +1,7 @@
 package com.baihy.config;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
  * @date: 2019/8/30 9:15 下午
  */
 @Configurable
+@MapperScan
 public class MybatisConfig {
 
 
